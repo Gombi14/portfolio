@@ -3,10 +3,10 @@ import React from "react";
 const Principal = ()=>{
     return(
         <>
-            <div className="h-screen flex flex-col bg-[linear-gradient(to_bottom,_#5050ff,_#13335b,_#000236)] justify-center items-center">
-                <div className="h-full flex justify-center items-center w-8/10 flex-col">
-                    <h1 className="text-amber-200 text-[49px]">Fullstack web developer</h1>
-                    <h1 className="text-6xl">Hola! soy Eric Gasull</h1>
+            <div className="h-screen flex flex-col bg-[linear-gradient(to_bottom,_#5050ff,_#13335b,_#000236)] justify-center items-center" id="inicio">
+                <div className="h-full flex justify-center items-center w-8/10 flex-col text-center">
+                    <h1 className="text-amber-200 md:text-[49px] text-[30px] ">Fullstack web developer</h1>
+                    <h1 className="md:text-6xl text-[37px]">Hola! soy Eric Gasull</h1>
                     <div className="flex mt-2">
                         <a href="https://www.linkedin.com/in/eric-gasull-serrano-037587308/">
                             <div>
