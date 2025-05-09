@@ -5,7 +5,7 @@ const Content = ()=>{
     return(
         <>
             <div className="flex flex-col items-center" id="sobre-mi">
-                <div className="h-full flex xl:w-7/10 w-9/10 flex-col">
+                <div className="h-full flex xl:w-5/10 w-9/10 flex-col">
                     <span className='h-[80px] w-full'></span>
                     <h2 className="text-4xl text-amber-200 mb-3">Sobre mi</h2>
                     <div className="flex gap-3 lg:flex-nowrap flex-wrap">

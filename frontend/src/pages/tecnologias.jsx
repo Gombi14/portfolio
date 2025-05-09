@@ -6,6 +6,7 @@ import logoCSS from "../assets/logo-css.png";
 import logoJS from "../assets/logo-js.png";
 import logoSASS from "../assets/logo-sass.png";
 import logoReact from "../assets/logo-react.png";
+import tailwind from "../assets/logo-tailwind.png";
 
 // Backend
 import logoPython from "../assets/logo-python.png";
@@ -34,6 +35,7 @@ const data = [
         { nombre: "JavaScript", foto: logoJS },
         { nombre: "SASS", foto: logoSASS },
         { nombre: "React", foto: logoReact },
+        { nombre: "Tailwind", foto: tailwind },
       ],
       backend: [
         { nombre: "Python", foto: logoPython },
@@ -62,40 +64,43 @@ const Tecnologias = () => {
   const [activeTab, setActiveTab] = useState("frontend");
 
   return (
-    <div className="min-h-screen flex flex-col items-center  py-10" id="tecnologias">
-        
-      {/* Tabs Header */}
-      <span className='h-[80px] w-full'></span>
-
-      <div className="flex gap-4 mb-8 flex-wrap justify-center">
-        {categorias.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveTab(cat)}
-            className={`px-4 py-2 rounded-full w-[140px] font-medium transition-colors duration-200 ${
-              activeTab === cat
-                ? "bg-[#5050ff] text-white"
-                : "bg-white text-gray-700 hover:bg-gray-300 cursor-pointer"
-            }`}
-          >
-            {cat.charAt(0).toUpperCase() + cat.slice(1)}
-          </button>
-        ))}
-      </div>
-
-      {/* Contenido dinámico */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full max-w-6xl px-4">
-        {data[0][activeTab].map((tech, idx) => (
-          <div
-            key={idx}
-            className="flex flex-col items-center bg-[#13335b] p-4 rounded-xl shadow hover:shadow-lg transition"
-          >
-            <img src={tech.foto} alt={tech.nombre} className="w-16 mb-2" />
-            <span className="text-center font-semibold">{tech.nombre}</span>
+    <>
+      <div className="flex items-center justify-center">
+        <div className="flex flex-col items-center w-9/10 xl:w-5/10 justify-center" id="tecnologias">
+            
+          {/* Tabs Header */}
+          <span className='h-[80px] w-full'></span>
+          <div className="flex gap-4 mb-8 flex-wrap justify-center">
+            {categorias.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveTab(cat)}
+                className={`px-4 py-2 rounded-full font-medium transition-colors w-[140px] duration-200 ${
+                  activeTab === cat
+                    ? "bg-[#5050ff] text-white"
+                    : "bg-white text-gray-700 hover:bg-gray-300 cursor-pointer"
+                }`}
+              >
+                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              </button>
+            ))}
           </div>
-        ))}
+
+          {/* Contenido dinámico */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full max-w-6xl px-4">
+            {data[0][activeTab].map((tech, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col justify-center items-center bg-[#13335b] p-4 rounded-xl shadow hover:shadow-lg transition h-[140px]"
+              >
+                <img src={tech.foto} alt={tech.nombre} className="w-16 mb-2" />
+                <span className="text-center font-semibold">{tech.nombre}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
