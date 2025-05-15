@@ -20,7 +20,7 @@ export default function Formacion() {
     return(
         <>
             <span className='h-[80px] w-full' id="formacion"></span>
-            <div className="flex flex-col items-center justify-center mb-10 mt-5 bg-[#5050ff] py-10" >
+            <div className="flex flex-col items-center justify-center mb-10 mt-5 bg-[#111177] py-10" >
                 <div className="xl:w-5/10 w-9/10">
                     <h1 className="text-2xl text-amber-200 mb-3">Formación</h1>
                     {data.map((formacion, index) => (

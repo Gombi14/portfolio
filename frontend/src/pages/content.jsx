@@ -1,6 +1,21 @@
 import React from "react";
 import Empresa from "../components/empresa";
 
+const data = [
+    {
+        empresa : 'Consultoria XMI (Desarrollador fullstack)',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facilis illum in maiores voluptatem explicabo quidem sit. Quidem sequi hic et harum cum nihil. Provident eligendi laborum incidunt ad molestiae.'
+    },
+    {
+        empresa : 'Escola jungfrau (tecnico informatico)',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facilis illum in maiores voluptatem explicabo quidem sit. Quidem sequi hic et harum cum nihil. Provident eligendi laborum incidunt ad molestiae.'
+    },
+    {
+        empresa : 'Encantes del colchon (tecnico informatico)',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores facilis illum in maiores voluptatem explicabo quidem sit. Quidem sequi hic et harum cum nihil. Provident eligendi laborum incidunt ad molestiae.'
+    },    
+]
+
 const Content = ()=>{
     return(
         <>
@@ -18,18 +33,13 @@ const Content = ()=>{
                             </div>
                         </div>
                         <div className="xl:w-5/10 flex flex-col gap-3">
-                            <Empresa
-                                title={'Empresa 1'}
-                                text={'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem ipsum repellat nostrum excepturi aspernatur ullam atque cum placeat maxime odit officia laudantium voluptas nisi, blanditiis inventore possimus sint perferendis est.'}
-                            />
-                            <Empresa
-                                title={'Empresa 2'}
-                                text={'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem ipsum repellat nostrum excepturi aspernatur ullam atque cum placeat maxime odit officia laudantium voluptas nisi, blanditiis inventore possimus sint perferendis est.'}
-                            />
-                            <Empresa
-                                title={'Empresa 3'}
-                                text={'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem ipsum repellat nostrum excepturi aspernatur ullam atque cum placeat maxime odit officia laudantium voluptas nisi, blanditiis inventore possimus sint perferendis est.'}
-                            />
+                            {data.map((element, index) => (
+                                <Empresa
+                                    key={index}
+                                    title={element.empresa}
+                                    text={element.description}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>

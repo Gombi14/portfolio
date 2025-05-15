@@ -2,15 +2,14 @@
   "name": "proyecto3",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npm run dev --prefix frontend\" \"node backend/index.js\""
-  },
+  "description": "",
   "author": "",
   "license": "ISC",
-  "description": "",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "express": "^5.1.0",
     "vite": "^6.2.6"
   },
   "devDependencies": {

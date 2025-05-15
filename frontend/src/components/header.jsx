@@ -26,7 +26,7 @@ const Header = ({ onContactClick }) => {
     return (
         <header
             className={`text-white flex justify-between items-center fixed w-screen h-[80px] transition-colors duration-300 z-50 px-4 ${
-                shouldShowBackground ? 'bg-[#000236] border-b-white border-b' : 'bg-transparent'
+                shouldShowBackground ? 'bg-[#000236] shadow-[#000044] shadow-2xl' : 'bg-transparent'
             }`}
         >
             <h1 className="text-2xl">Welcome to My Website</h1>
