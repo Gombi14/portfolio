@@ -1,16 +1,16 @@
 import mongoose from 'mongoose';
 
 const experienceSchema = new mongoose.Schema({
-  title: {
+  empresa: {
     type: String,
     required: true,
   },
-  content: {
+  description: {
     type: String,
     required: true,
   },
 });
 
-const Education = mongoose.model('Education', experienceSchema, 'experience');
+const Experience = mongoose.model('Experience', experienceSchema, 'experience');
 
-export default Education;
+export default Experience;
