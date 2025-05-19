@@ -29,7 +29,7 @@ const Header = ({ onContactClick }) => {
                 shouldShowBackground ? 'bg-[#000236] shadow-[#000044] shadow-2xl' : 'bg-transparent'
             }`}
         >
-            <h1 className="text-2xl">Welcome to My Website</h1>
+            <h1 className="text-4xl">Port<span className='text-amber-200'>folio</span></h1>
 
             <button
                 onClick={toggleMenu}
@@ -44,11 +44,11 @@ const Header = ({ onContactClick }) => {
                     menuOpen ? 'flex' : 'hidden'
                 } flex-col absolute top-[80px] left-0 w-full justify-end bg-[#000236] text-white items-center gap-4 py-4 xl:flex xl:flex-row xl:static xl:bg-transparent xl:gap-6 xl:py-0 xl:items-center`}
             >
-                <a href="#inicio" className="hover:underline xl:w-fit w-full text-center" onClick={() => setMenuOpen(false)}>Inicio</a>
-                <a href="#sobre-mi" className="hover:underline xl:w-fit w-full text-center" onClick={() => setMenuOpen(false)}>Experiencia</a>
-                <a href="#tecnologias" className="hover:underline xl:w-fit w-full text-center" onClick={() => setMenuOpen(false)}>Tecnologías</a>
-                <a href="#formacion" className="hover:underline xl:w-fit w-full text-center" onClick={() => setMenuOpen(false)}>Formación</a>
-                <a href="#proyectos" className="hover:underline xl:w-fit w-full text-center" onClick={() => setMenuOpen(false)}>Proyectos</a>
+                <a href="/#inicio" className="hover:underline xl:w-fit w-full text-center" onClick={() => setMenuOpen(false)}>Inicio</a>
+                <a href="/#sobre-mi" className="hover:underline xl:w-fit w-full text-center" onClick={() => setMenuOpen(false)}>Experiencia</a>
+                <a href="/#tecnologias" className="hover:underline xl:w-fit w-full text-center" onClick={() => setMenuOpen(false)}>Tecnologías</a>
+                <a href="/#formacion" className="hover:underline xl:w-fit w-full text-center" onClick={() => setMenuOpen(false)}>Formación</a>
+                <a href="/#proyectos" className="hover:underline xl:w-fit w-full text-center" onClick={() => setMenuOpen(false)}>Proyectos</a>
                 <a onClick={() => { setMenuOpen(false); onContactClick(); }} className="hover:underline cursor-pointer xl:w-fit w-full text-center">Contact</a>
             </nav>
         </header>
