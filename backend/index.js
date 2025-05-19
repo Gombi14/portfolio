@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 // ========================
 import routes from './routes/index.js'
 
-// Obtener __dirname en módulos ES (ECMAScript)
+// Obtener __filename y __dirname en módulos ES
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -48,7 +48,12 @@ app.use(cors());
 app.use(express.json());
 
 // ========================
-// Rutas (aquí puedes agregar tus endpoints más adelante)
+// Archivos estáticos (imagenes)
+// ========================
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// ========================
+// Rutas de la API
 // ========================
 app.use('/api', routes);
 

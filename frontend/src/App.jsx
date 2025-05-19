@@ -8,9 +8,6 @@ import Contact from './pages/contact'
 import Proyectos from './pages/proyectos'
 import Formacion from './pages/formacion';
 
-fetch('http://localhost:3000/api/hello')
-.then(res => res.json())
-.then(data => console.log(data));
 
 
 function App() {

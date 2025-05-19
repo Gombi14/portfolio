@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "a25039de-8c45-421d-9e34-b4f6cffdbaff",
+		"name": "localhost:3000",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44776161"
+	},
+	"item": [
+		{
+			"name": "education",
+			"item": [
+				{
+					"name": "education id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Test api crear\",\n  \"content\": \"Contenido del texto del test de la api de creacion de education\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/education/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"education",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "education all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/education",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "education delete id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/education/6822f5909b6abbff972070db",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"education",
+								"6822f5909b6abbff972070db"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "education add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Grado Superior en Desarrollo de Aplicaciones Web\",\n    \"content\":\"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque quam deserunt totam placeat, nostrum odit ex quidem, minus qui, consequuntur voluptatum est aliquam perspiciatis quaerat at nisi nulla. Impedit, eos!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/education",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eucation update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"Test api de update education\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/education/6822f5909b6abbff972070dc",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"education",
+								"6822f5909b6abbff972070dc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "experience",
+			"item": [
+				{
+					"name": "experience id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/experience/6822f4539b6abbff972070d6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"experience",
+								"6822f4539b6abbff972070d6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "experience all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/experience",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "experience delete id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/experience/6826eb0aba7b1ee9dcb84ac2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"experience",
+								"6826eb0aba7b1ee9dcb84ac2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "experience add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"empresa\":\"Microsoft\",\n    \"description\":\"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque quam deserunt totam placeat, nostrum odit ex quidem, minus qui, consequuntur voluptatum est aliquam perspiciatis quaerat at nisi nulla. Impedit, eos!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/experience",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eucation update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Test api de update experience\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/experience/6826eb14ba7b1ee9dcb84ac5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"experience",
+								"6826eb14ba7b1ee9dcb84ac5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "message",
+			"item": [
+				{
+					"name": "messages id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "messages all",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "messages add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Test api de update experience\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/api/experience",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"experience"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "projects",
+			"item": [
+				{
+					"name": "GET - Todos los proyectos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - Proyecto por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects/{{projectId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - Crear nuevo proyecto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Proyecto de prueba",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Descripción del proyecto de prueba",
+									"type": "text"
+								},
+								{
+									"key": "img",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT - Actualizar proyecto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Proyecto actualizado",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Contenido actualizado",
+									"type": "text"
+								},
+								{
+									"key": "img",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/projects/{{projectId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE - Eliminar proyecto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects/{{projectId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"{{projectId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

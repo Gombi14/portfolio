@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Proyecto from "../components/proyecto"
 import apeles from "../assets/apeles-fenosa.png";
 import tienda from "../assets/tienda-laravel.png";
@@ -24,6 +24,21 @@ const data = [
 ]
 
 const Proyectos = ()=>{
+    const [file, setFile] = useState(null);
+    const [imageUrl, setImageUrl] = useState('');
+
+    const handleUpload = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('image', file);
+
+        try {
+        const res = await axios.post('http://localhost:5000/api/upload', formData);
+        setImageUrl(res.data.imageUrl);
+        } catch (err) {
+        console.error(err);
+        }
+    };
     return (
         <>
             <div className="flex flex-col items-center justify-center mb-10" id="proyectos">
@@ -42,6 +57,11 @@ const Proyectos = ()=>{
                             </div>
                         ))}
                     </div>
+                    
+                    <form onSubmit={handleUpload} className="flex flex-col w-full mt-4">
+                        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+                        <button type="submit" className="bg-blue-500 text-white p-2 rounded-lg mt-4 transition-all duration-300 hover:bg-blue-600 cursor-pointer">Subir</button>
+                    </form>
                 </div>
             </div>
         </>
