@@ -43,7 +43,7 @@ const DashboardHome = ({ activeTab }) => {
                 if (!["_id", "__v"].includes(key)) acc[key] = "";
                 return acc;
             }, {})
-            : { titulo: "", contenido: "" }; // fallback genérico
+            : { titulo: "", contenido: "" };
         setModalData(emptyTemplate);
         setIsNew(true);
         setIsModalOpen(true);
@@ -53,6 +53,7 @@ const DashboardHome = ({ activeTab }) => {
         const url = `http://localhost:3000${endpoints[activeTab]}`;
         const method = isNew ? "POST" : "PUT";
         const fullUrl = isNew ? url : `${url}/${formData._id}`;
+        const token = localStorage.getItem("token");
 
         const hasFile = Object.values(formData).some(value => value instanceof File);
 
@@ -67,13 +68,17 @@ const DashboardHome = ({ activeTab }) => {
             }
             options = {
                 method,
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },
                 body: data
             };
         } else {
             options = {
                 method,
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
                 },
                 body: JSON.stringify(formData)
             };
@@ -97,12 +102,24 @@ const DashboardHome = ({ activeTab }) => {
         if (!confirmed) return;
 
         const url = `http://localhost:3000${endpoints[activeTab]}/${id}`;
+        const token = localStorage.getItem("token");
+
         try {
-            await fetch(url, { method: "DELETE" });
+            await fetch(url, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             fetchData();
         } catch (error) {
             console.error("Error al eliminar:", error);
         }
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        window.location.href = "/";
     };
 
     return (
@@ -111,12 +128,17 @@ const DashboardHome = ({ activeTab }) => {
             <div className="min-h-[calc(100vh-80px)] bg-blue-950 p-8">
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-3xl capitalize text-amber-200">{activeTab}</h2>
-                    <button
-                        onClick={openCreateModal}
-                        className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
-                    >
-                        Crear Nuevo
-                    </button>
+                    <div className="flex gap-4">
+                        <button
+                            onClick={openCreateModal}
+                            className="bg-green-500 hover:bg-green-600 px-3 py-1 rounded text-white"
+                        >
+                            Crear Nuevo
+                        </button>
+                        <button onClick={handleLogout} className="bg-red-600 px-3 py-1 rounded text-white">
+                            Cerrar sesión
+                        </button>
+                    </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {data.map(item => (

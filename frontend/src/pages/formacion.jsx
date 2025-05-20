@@ -1,22 +1,23 @@
-import React from "react";
-
-const data = [
-    {
-        title : 'Grado Superior en Desarrollo de Aplicaciones Web',
-        content : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque quam deserunt totam placeat, nostrum odit ex quidem, minus qui, consequuntur voluptatum est aliquam perspiciatis quaerat at nisi nulla. Impedit, eos!',
-    },
-    {
-        title : 'Grado Medio en Sistemas Microinformáticos y Redes',
-        content : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque quam deserunt totam placeat, nostrum odit ex quidem, minus qui, consequuntur voluptatum est aliquam perspiciatis quaerat at nisi nulla. Impedit, eos!',
-    },
-    ,
-    {
-        title : 'Curso Udemy de Desarrollo Frontend con React',
-        content : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque quam deserunt totam placeat, nostrum odit ex quidem, minus qui, consequuntur voluptatum est aliquam perspiciatis quaerat at nisi nulla. Impedit, eos!',
-    }
-]
+import React, { useEffect, useState } from "react";
 
 export default function Formacion() {
+    const [data, setData] = useState([]) 
+
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            try {
+                const res = await fetch('http://localhost:3000/api/education')
+                const json = await res.json()
+                console.log(res);
+                setData(Array.isArray(json)?json:[])
+            }catch(err){
+                console.error('Error al cargar la formacion: ', err)
+            }
+        }
+        fetchData()
+    },[])
+
+
     return(
         <>
             <span className='h-[80px] w-full' id="formacion"></span>

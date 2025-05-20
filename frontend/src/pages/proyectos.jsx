@@ -1,44 +1,23 @@
-import React, {useState} from "react";
-import Proyecto from "../components/proyecto"
-import apeles from "../assets/apeles-fenosa.png";
-import tienda from "../assets/tienda-laravel.png";
-import portfolio from "../assets/portfolio.png";
+import React, { useState, useEffect } from "react";
+import Proyecto from "../components/proyecto";
 
+const Proyectos = () => {
+    const [data, setData] = useState([]);
 
-const data = [
-    {
-        title : 'Museo Apel·les fenosa',
-        content : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque quam deserunt totam placeat, nostrum odit ex quidem, minus qui, consequuntur voluptatum est aliquam perspiciatis quaerat at nisi nulla. Impedit, eos!',
-        img : apeles
-    },
-    {
-        title : 'Portfolio',
-        content : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque quam deserunt totam placeat, nostrum odit ex quidem, minus qui, consequuntur voluptatum est aliquam perspiciatis quaerat at nisi nulla. Impedit, eos!',
-        img : portfolio
-    },
-    {
-        title : 'Tienda online Rick y Morty',
-        content : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque quam deserunt totam placeat, nostrum odit ex quidem, minus qui, consequuntur voluptatum est aliquam perspiciatis quaerat at nisi nulla. Impedit, eos!',
-        img : tienda
-    }    
-]
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const res = await fetch("http://localhost:3000/api/projects");
+                const json = await res.json();
+                setData(Array.isArray(json) ? json : []);
+            } catch (error) {
+                console.error("Error al cargar los proyectos:", error);
+            }
+        };
 
-const Proyectos = ()=>{
-    const [file, setFile] = useState(null);
-    const [imageUrl, setImageUrl] = useState('');
+        fetchProjects();
+    }, []);
 
-    const handleUpload = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('image', file);
-
-        try {
-        const res = await axios.post('http://localhost:5000/api/upload', formData);
-        setImageUrl(res.data.imageUrl);
-        } catch (err) {
-        console.error(err);
-        }
-    };
     return (
         <>
             <div className="flex flex-col items-center justify-center mb-10" id="proyectos">
@@ -57,14 +36,10 @@ const Proyectos = ()=>{
                             </div>
                         ))}
                     </div>
-                    
-                    <form onSubmit={handleUpload} className="flex flex-col w-full mt-4">
-                        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-                        <button type="submit" className="bg-blue-500 text-white p-2 rounded-lg mt-4 transition-all duration-300 hover:bg-blue-600 cursor-pointer">Subir</button>
-                    </form>
                 </div>
             </div>
         </>
-    )
-}
-export default Proyectos
+    );
+};
+
+export default Proyectos;

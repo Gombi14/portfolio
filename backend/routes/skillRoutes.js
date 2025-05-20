@@ -8,6 +8,7 @@ import {
   updateTecnologia,
   deleteTecnologia,
 } from "../controllers/skillController.js";
+import { protect } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
@@ -21,8 +22,8 @@ const upload = multer({ storage });
 // Rutas con y sin imagen
 router.get("/", getAllTecnologias);
 router.get("/:id", getTecnologiaById);
-router.post("/", upload.single("foto"), createTecnologia);
-router.put("/:id", upload.single("foto"), updateTecnologia);
-router.delete("/:id", deleteTecnologia);
+router.post("/", protect, upload.single("foto"), createTecnologia);
+router.put("/:id", protect, upload.single("foto"), updateTecnologia);
+router.delete("/:id", protect, deleteTecnologia);
 
 export default router;

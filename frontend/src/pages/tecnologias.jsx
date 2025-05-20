@@ -1,38 +1,24 @@
-import React, { useState } from "react";
-
-const tecnologias = [
-  // Frontend
-  { nombre: "HTML", foto: "http://localhost:3000/uploads/logo-html.png", categoria: "frontend" },
-  { nombre: "CSS", foto: "http://localhost:3000/uploads/logo-css.png", categoria: "frontend" },
-  { nombre: "JavaScript", foto: "http://localhost:3000/uploads/logo-js.png", categoria: "frontend" },
-  { nombre: "SASS", foto: "http://localhost:3000/uploads/logo-sass.png", categoria: "frontend" },
-  { nombre: "React", foto: "http://localhost:3000/uploads/logo-react.png", categoria: "frontend" },
-  { nombre: "Tailwind", foto: "http://localhost:3000/uploads/logo-tailwind.png", categoria: "frontend" },
-
-  // Backend
-  { nombre: "Python", foto: "http://localhost:3000/uploads/logo-python.png", categoria: "backend" },
-  { nombre: "PHP", foto: "http://localhost:3000/uploads/logo-php.png", categoria: "backend" },
-  { nombre: "Laravel", foto: "http://localhost:3000/uploads/logo-laravel.png", categoria: "backend" },
-  { nombre: "Java", foto: "http://localhost:3000/uploads/logo-java.png", categoria: "backend" },
-  { nombre: "Node JS", foto: "http://localhost:3000/uploads/logo-node.png", categoria: "backend" },
-
-  // Aprendiendo
-  { nombre: "Django", foto: "http://localhost:3000/uploads/logo-django.png", categoria: "aprendiendo" },
-  { nombre: "SpringBoot", foto: "http://localhost:3000/uploads/logo-spring.png", categoria: "aprendiendo" },
-  { nombre: "Next JS", foto: "http://localhost:3000/uploads/logo-next.png", categoria: "aprendiendo" },
-  { nombre: "Astro", foto: "http://localhost:3000/uploads/logo-astro.png", categoria: "aprendiendo" },
-
-  // Herramientas
-  { nombre: "Git", foto: "http://localhost:3000/uploads/logo-git.png", categoria: "herramientas" },
-  { nombre: "Figma", foto: "http://localhost:3000/uploads/logo-figma.png", categoria: "herramientas" },
-  { nombre: "npm", foto: "http://localhost:3000/uploads/logo-npm.png", categoria: "herramientas" },
-  { nombre: "Terminal", foto: "http://localhost:3000/uploads/logo-terminal.png", categoria: "herramientas" },
-];
+import React, { useState, useEffect } from "react";
 
 const categorias = ["frontend", "backend", "aprendiendo", "herramientas"];
 
 const Tecnologias = () => {
   const [activeTab, setActiveTab] = useState("frontend");
+  const [tecnologias, setTecnologias] = useState([]);
+
+  useEffect(() => {
+    const fetchTecnologias = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/api/skill");
+        const json = await res.json();
+        setTecnologias(Array.isArray(json) ? json : []);
+      } catch (error) {
+        console.error("Error al cargar las tecnologias:", error);
+      }
+    };
+
+    fetchTecnologias();
+  }, []);
 
   const tecnologiasFiltradas = tecnologias.filter(
     (tech) => tech.categoria === activeTab
@@ -41,8 +27,9 @@ const Tecnologias = () => {
   return (
     <div className="flex items-center justify-center">
       <div className="flex flex-col items-center w-9/10 xl:w-5/10 justify-center" id="tecnologias">
-        {/* Tabs Header */}
         <span className="h-[80px] w-full"></span>
+
+        {/* Tabs Header */}
         <div className="flex gap-4 mb-8 flex-wrap justify-center">
           {categorias.map((cat) => (
             <button

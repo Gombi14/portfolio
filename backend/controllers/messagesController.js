@@ -22,12 +22,12 @@ export const getMessagesById = async (req,res)=>{
 }
 
 export const createMessage = async (req,res)=>{
-    console.log(req);
     try{
         const {nombre, email, mensaje} = req.body
         const newMessage = new Messages({nombre,email,mensaje})
         await newMessage.save()
         res.status(200)
+        res.status(201).json(newMessage);
     }catch (err){
         console.log(err);
         res.status(500).json('No se ha podido crear el mensaje')
