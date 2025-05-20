@@ -4,7 +4,7 @@ import Project from '../models/projectsModel.js';
 export const createProject = async (req, res) => {
   try {
     const { title, content } = req.body;
-    const img = req.file ? req.file.filename : null;
+    const img = req.file ? `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}` : null;
 
     const newProject = new Project({ title, content, img });
     await newProject.save();
@@ -13,6 +13,7 @@ export const createProject = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 // Obtener todos los proyectos
 export const getProjects = async (req, res) => {
@@ -40,8 +41,9 @@ export const updateProject = async (req, res) => {
   try {
     const { title, content } = req.body;
     const updatedData = { title, content };
+    
     if (req.file) {
-      updatedData.img = req.file.filename;
+      updatedData.img = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
     }
 
     const project = await Project.findByIdAndUpdate(req.params.id, updatedData, { new: true });
