@@ -10,7 +10,7 @@ const Aside = ({ activeTab, setActiveTab }) => {
     ];
 
     return (
-        <div className="flex flex-col h-full p-4 min-w-[200px] items-center">
+        <div className="flex flex-col h-full p-4 min-w-[200px] items-center fixed bg-[#101728]">
             <span className='h-[80px] w-full'></span>
             <h1 className="text-2xl mb-4">Dashboard</h1>
             <ul className="space-y-2">

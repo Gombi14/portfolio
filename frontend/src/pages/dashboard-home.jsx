@@ -125,18 +125,18 @@ const DashboardHome = ({ activeTab }) => {
     return (
         <div className="flex flex-col w-full h-full">
             <span className='h-[80px] w-full'></span>
-            <div className="min-h-[calc(100vh-80px)] bg-blue-950 p-8">
+            <div className="min-h-[calc(100vh-80px)] bg-[#273048] p-8">
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-3xl capitalize text-amber-200">{activeTab}</h2>
                     <div className="flex gap-4">
                         <button
                             onClick={openCreateModal}
-                            className="bg-green-500 hover:bg-green-600 px-3 py-1 rounded text-white"
+                            className="bg-green-500 hover:bg-green-600 px-3 py-1 rounded text-white cursor-pointer" title="Nuevo elemento"
                         >
-                            Crear Nuevo
+                            <i class="fa-solid fa-square-plus cursor-pointer" title="Nuevo elemento"></i>
                         </button>
-                        <button onClick={handleLogout} className="bg-red-600 px-3 py-1 rounded text-white">
-                            Cerrar sesión
+                        <button onClick={handleLogout} className="bg-red-600 px-3 py-1 rounded text-white cursor-pointer" title="cerrar sessión">
+                            <i class="fa-solid fa-right-from-bracket" ></i>
                         </button>
                     </div>
                 </div>

@@ -30,7 +30,7 @@ const Contact = ({ onClose }) => {
 
     return (
         <div className="h-screen w-screen bg-[#00000053] fixed flex items-center justify-center z-50">
-            <div className="sm:w-[500px] w-11/12 bg-white p-4 rounded-2xl text-black">
+            <div className="sm:w-[500px] w-11/12 bg-blue-900 p-4 rounded-2xl text-white">
                 <div className="flex items-center justify-between">
                     <h1 className="text-2xl">Contacto</h1>
                     <div className="relative top-1 right-1 h-[40px] w-[40px] flex items-center justify-center text-2xl cursor-pointer select-none" onClick={onClose}> &times;</div>
@@ -40,7 +40,7 @@ const Contact = ({ onClose }) => {
                         <label htmlFor="nombre">Nombre</label>
                         <input
                             type="text"
-                            className='border-gray-100 border p-2 rounded-lg'
+                            className='border-gray-100 border p-2 rounded-lg bg-white'
                             placeholder='Nombre'
                             value={nombre}
                             onChange={e => setNombre(e.target.value)}
@@ -48,14 +48,14 @@ const Contact = ({ onClose }) => {
                         <label htmlFor="email">Email</label>
                         <input
                             type="email"
-                            className='border-gray-100 border p-2 rounded-lg'
+                            className='border-gray-100 border p-2 rounded-lg bg-white'
                             placeholder='Email'
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                         />
                         <label htmlFor="mensaje">Mensaje</label>
                         <textarea
-                            className='border-gray-100 border p-2 rounded-lg resize-none'
+                            className='border-gray-100 border p-2 rounded-lg resize-none bg-white'
                             placeholder='Mensaje'
                             rows={5}
                             value={mensaje}

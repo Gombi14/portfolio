@@ -1,9 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+
 
 const Header = ({ onContactClick }) => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const location = useLocation();
+
+      const [bgColorClass, setBgColorClass] = useState('bg-[#000236]');
+
+      useEffect(() => {
+        if (location.pathname === '/dashboard') {
+            setBgColorClass('bg-[#101728]');
+        } else {
+            setBgColorClass('transparent');
+        }
+    }, [location.pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,7 +40,7 @@ const Header = ({ onContactClick }) => {
     return (
         <header
             className={`text-white flex justify-between items-center fixed w-screen h-[80px] transition-colors duration-300 z-50 px-4 ${
-                shouldShowBackground ? 'bg-[#000236] shadow-[#000044] shadow-2xl' : 'bg-transparent'
+                shouldShowBackground && location.pathname !== '/dashboard' ? 'bg-[#000236] shadow-[#000044] shadow-2xl' : bgColorClass
             }`}
         >
             <h1 className="text-4xl">Port<span className='text-amber-200'>folio</span></h1>

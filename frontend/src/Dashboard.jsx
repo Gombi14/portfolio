@@ -11,6 +11,7 @@ const Dashboard = ()=>{
         <Header />
         <div className="flex min-h-full">
           <Aside activeTab={activeTab} setActiveTab={setActiveTab} />
+          <span className="min-w-[200px]"></span>
           <DashboardHome activeTab={activeTab} />
         </div>
       </div>
