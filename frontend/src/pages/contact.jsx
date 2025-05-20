@@ -40,7 +40,7 @@ const Contact = ({ onClose }) => {
                         <label htmlFor="nombre">Nombre</label>
                         <input
                             type="text"
-                            className='border-gray-100 border p-2 rounded-lg bg-white'
+                            className='border-gray-100 border p-2 rounded-lg bg-white text-black' 
                             placeholder='Nombre'
                             value={nombre}
                             onChange={e => setNombre(e.target.value)}
@@ -48,14 +48,14 @@ const Contact = ({ onClose }) => {
                         <label htmlFor="email">Email</label>
                         <input
                             type="email"
-                            className='border-gray-100 border p-2 rounded-lg bg-white'
+                            className='border-gray-100 border p-2 rounded-lg bg-white text-black'
                             placeholder='Email'
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                         />
                         <label htmlFor="mensaje">Mensaje</label>
                         <textarea
-                            className='border-gray-100 border p-2 rounded-lg resize-none bg-white'
+                            className='border-gray-100 border p-2 rounded-lg resize-none bg-white text-black'
                             placeholder='Mensaje'
                             rows={5}
                             value={mensaje}
